@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DitzelGames.FastIK;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 1;
 
     [SerializeField] Animator animator;
+    [SerializeField] FastIKFabric rightArm, leftArm;
+    [SerializeField] Transform rightArmNormalTarget, leftArmNormalTarget;
+
 
     new Rigidbody rigidbody;
 
@@ -30,6 +34,12 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        rightArm.Target = rightArmNormalTarget;
+        leftArm.Target = leftArmNormalTarget;
     }
 
     void Update()
@@ -69,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
             if (interactCliked)
             {
+                Debug.Log("Interacting");
                 closestInteractable.InteractWith(this);
             }
         }
@@ -138,6 +149,9 @@ public class PlayerController : MonoBehaviour
 
             pickupTransform.parent = transform;
             pickupTransform.position = pickupPositionTransform.position;
+
+            rightArm.Target = currentPickup.GetTransform();
+            leftArm.Target = currentPickup.GetTransform();
         }
 
     }
@@ -153,6 +167,8 @@ public class PlayerController : MonoBehaviour
         currentPickup.GetRigidbody().isKinematic = false;
         currentPickup.GetCollider().enabled = true;
         currentPickup = null;
+        rightArm.Target = rightArmNormalTarget;
+        leftArm.Target = leftArmNormalTarget;
     }
 
     private void OnDrawGizmosSelected()
