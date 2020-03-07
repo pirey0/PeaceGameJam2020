@@ -58,13 +58,13 @@ public class PlayerController : MonoBehaviour
     {
         closestInteractable = GetClosestObjectInRange<IInteractable>();
 
-        if (closestInteractable != null && closestInteractable.CanInteractWith(currentPickup))
+        if (closestInteractable != null && closestInteractable.CanInteractWith(this))
         {
             bool interactCliked = Input.GetButtonDown(interactInputButton);
 
             if (interactCliked)
             {
-                closestInteractable.InteractWith(currentPickup);
+                closestInteractable.InteractWith(this);
             }
         }
     }
