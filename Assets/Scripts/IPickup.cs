@@ -11,7 +11,7 @@ public interface IPickupable
 
 public interface IInteractable
 {
-    bool CanInteractWith(IPickupable currentPickup);
+    bool CanInteractWith(PlayerController playerController);
 
-    void InteractWith(IPickupable currentPickup);
+    void InteractWith(PlayerController playerController);
 }

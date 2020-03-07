@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     IInteractable closestInteractable;
 
+    public IPickupable CurrentPickup { get => currentPickup; }
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -87,7 +89,6 @@ public class PlayerController : MonoBehaviour
                 Release();
             }
         }
-
     }
 
     T GetClosestObjectInRange<T>()
@@ -134,6 +135,11 @@ public class PlayerController : MonoBehaviour
             pickupTransform.position = pickupPositionTransform.position;
         }
 
+    }
+
+    public void ForceRelease()
+    {
+        Release();
     }
 
     void Release()
