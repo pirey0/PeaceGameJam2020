@@ -13,7 +13,6 @@ public class TrashPickup : MonoBehaviour, IPickupable
         collider = GetComponent<Collider>();
     }
 
-
     public Collider GetCollider()
     {
         return collider;
@@ -27,5 +26,15 @@ public class TrashPickup : MonoBehaviour, IPickupable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public bool ShouldPickup()
+    {
+        return true;
+    }
+
+    public void CauseEffect()
+    {
+
     }
 }

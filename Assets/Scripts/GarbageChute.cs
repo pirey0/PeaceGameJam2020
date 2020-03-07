@@ -6,7 +6,6 @@ public class GarbageChute : MonoBehaviour, IInteractable
 {
     [SerializeField] Transform target;  
     [SerializeField] Animator animator;
-    [SerializeField] GarbageChute partner;
 
     public bool CanInteractWith(PlayerController playerController){
         return true;

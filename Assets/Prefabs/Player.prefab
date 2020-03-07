@@ -173,7 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   pickupPositionTransform: {fileID: 7031355301416248495}
-  pickupRange: 1.5
+  pickupRange: 0.75
   speed: 4
   animator: {fileID: 1451315382}
   rightArm: {fileID: 833636069682379853}
@@ -190,7 +190,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -276,7 +276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 3d4ef642ddd86f14a8244775b90ed35f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -4427541548931147265, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -300,22 +300,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.71628207
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69781095
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
@@ -330,7 +330,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 91.497
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad82ddcee7a29704f84d5323eb7f86d9,
         type: 3}

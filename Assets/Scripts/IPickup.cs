@@ -7,6 +7,9 @@ public interface IPickupable
     Rigidbody GetRigidbody();
     Transform GetTransform();
     Collider GetCollider();
+    void CauseEffect();
+
+    bool ShouldPickup();
 }
 
 public interface IInteractable
