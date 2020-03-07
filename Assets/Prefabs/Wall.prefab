@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1459339067978384794}
   - component: {fileID: 6446677898585973719}
   - component: {fileID: 2210482975675514772}
+  - component: {fileID: 7267810329877799252}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -60,8 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d41e6530acabd2458dde08a0de4ad97, type: 2}
-  - {fileID: 2100000, guid: d75c9fe721ae85d4aafc62526cb5f8ed, type: 2}
+  - {fileID: 2100000, guid: 06e7b3cc99963ad45ae88d5ceb4bc95d, type: 2}
+  - {fileID: 2100000, guid: 3d4ef642ddd86f14a8244775b90ed35f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +96,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 0.014328503, z: 1.0000004}
   m_Center: {x: 6.405226e-10, y: 0.007164162, z: -6.404667e-10}
+--- !u!114 &7267810329877799252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311393100928134360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2dcc142afd25ee4f96dcfbfd6412cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 06e7b3cc99963ad45ae88d5ceb4bc95d, type: 2}
+  meshCenter: {x: 0, y: 0, z: 0}
+  maxLights: 6
+  raycast: 1
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastFadeSpeed: 10
 --- !u!1 &4747909763132353118
 GameObject:
   m_ObjectHideFlags: 0

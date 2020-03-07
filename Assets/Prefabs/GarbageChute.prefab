@@ -307,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 6125512959879083320}
   animator: {fileID: 6125512960175975653}
+  partner: {fileID: 0}
 --- !u!65 &6125512961063350223
 BoxCollider:
   m_ObjectHideFlags: 0
