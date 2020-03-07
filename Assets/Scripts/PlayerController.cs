@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] string horizontalInputAxis;
     [SerializeField] string verticalInputAxis;
-    [SerializeField] string pickupInputButton, interactInputButton;
+    [SerializeField] string pickupInputButton;
     [SerializeField] LayerMask pickupLayer;
     [SerializeField] Transform pickupPositionTransform;
 
