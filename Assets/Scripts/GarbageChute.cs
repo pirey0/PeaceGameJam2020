@@ -5,7 +5,7 @@ using UnityEngine;
 public class GarbageChute : MonoBehaviour, IInteractable
 {
     [SerializeField] Transform target;  
-
+    [SerializeField] Animator animator;
     public bool CanInteractWith(PlayerController playerController){
         return true;
     }
@@ -15,7 +15,7 @@ public class GarbageChute : MonoBehaviour, IInteractable
             IPickupable garbage = playerController.CurrentPickup;
             playerController.ForceRelease();
             garbage.GetTransform().position = target.position;
-            
+            animator.SetTrigger("Open");
         }
         else{
             // Feedback nothing to throw away
