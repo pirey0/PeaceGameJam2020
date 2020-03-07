@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DitzelGames.FastIK;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +17,12 @@ public class PlayerController : MonoBehaviour
     [Range(1,10)]
     [SerializeField] float speed = 1;
 
-     new Rigidbody rigidbody;
+    [SerializeField] Animator animator;
+    [SerializeField] FastIKFabric rightArm, leftArm;
+    [SerializeField] Transform rightArmNormalTarget, leftArmNormalTarget;
+
+
+    new Rigidbody rigidbody;
 
     IPickupable currentPickup;
     IPickupable closestPickup;
@@ -30,10 +36,17 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        rightArm.Target = rightArmNormalTarget;
+        leftArm.Target = leftArmNormalTarget;
+    }
+
     void Update()
     {
         UpdateMovement();
         UpdatePickup();
+        UpdateInteract();
     }
 
 
@@ -52,6 +65,8 @@ public class PlayerController : MonoBehaviour
             transform.forward = vel;
         }
 
+        animator.SetFloat("Speed", rigidbody.velocity.magnitude);
+
     }
 
     void UpdateInteract()
@@ -64,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
             if (interactCliked)
             {
+                Debug.Log("Interacting");
                 closestInteractable.InteractWith(this);
             }
         }
@@ -133,6 +149,9 @@ public class PlayerController : MonoBehaviour
 
             pickupTransform.parent = transform;
             pickupTransform.position = pickupPositionTransform.position;
+
+            rightArm.Target = currentPickup.GetTransform();
+            leftArm.Target = currentPickup.GetTransform();
         }
 
     }
@@ -148,6 +167,8 @@ public class PlayerController : MonoBehaviour
         currentPickup.GetRigidbody().isKinematic = false;
         currentPickup.GetCollider().enabled = true;
         currentPickup = null;
+        rightArm.Target = rightArmNormalTarget;
+        leftArm.Target = leftArmNormalTarget;
     }
 
     private void OnDrawGizmosSelected()
