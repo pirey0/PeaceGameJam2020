@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
             if (interactCliked)
             {
+                Debug.Log("Interacting");
                 closestInteractable.InteractWith(this);
             }
         }
