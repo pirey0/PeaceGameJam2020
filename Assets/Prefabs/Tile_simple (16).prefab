@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6406069904334701165}
   - component: {fileID: 2719584957109368923}
   - component: {fileID: 8539213533344433314}
+  - component: {fileID: 8104530121814965745}
   m_Layer: 0
   m_Name: Tile_simple (16)
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d355f87d3870ea428b3becb8f74d6a2, type: 2}
+  - {fileID: 2100000, guid: 92d57e3e2082b0b42a5f4f8316c4275b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,3 +80,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8104530121814965745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979735857733447806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2dcc142afd25ee4f96dcfbfd6412cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 92d57e3e2082b0b42a5f4f8316c4275b, type: 2}
+  meshCenter: {x: 0, y: 0, z: 0}
+  maxLights: 6
+  raycast: 1
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastFadeSpeed: 10

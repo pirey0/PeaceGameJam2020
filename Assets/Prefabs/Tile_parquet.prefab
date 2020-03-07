@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 120954034531000495}
   - component: {fileID: 9004579885730093721}
   - component: {fileID: 3443627373702555232}
+  - component: {fileID: 9221847648173722240}
   m_Layer: 0
   m_Name: Tile_parquet
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6259507d9e11eb4d9d194f50b19c228, type: 2}
+  - {fileID: 2100000, guid: 0738885f0cb707245ba1a147bad05123, type: 2}
   - {fileID: 2100000, guid: b68e6d4417553ee4d9465bd7735e4655, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -80,3 +81,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &9221847648173722240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032673116458586812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2dcc142afd25ee4f96dcfbfd6412cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 0738885f0cb707245ba1a147bad05123, type: 2}
+  meshCenter: {x: 0, y: 0, z: 0}
+  maxLights: 6
+  raycast: 1
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastFadeSpeed: 10

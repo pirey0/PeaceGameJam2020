@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4081504232236729734}
   - component: {fileID: 7753196425964599679}
   - component: {fileID: 552249771810189962}
-  - component: {fileID: -4528343992162309445}
-  - component: {fileID: 5364535447222774946}
+  - component: {fileID: -2071557319189831629}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92d57e3e2082b0b42a5f4f8316c4275b, type: 2}
+  - {fileID: 2100000, guid: eef93af5d6e62a84cb44f00c835c103d, type: 2}
   - {fileID: 2100000, guid: 92d57e3e2082b0b42a5f4f8316c4275b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -96,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.010017064, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4528343992162309445
+--- !u!114 &-2071557319189831629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,26 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: eef93af5d6e62a84cb44f00c835c103d, type: 2}
-  meshCenter: {x: 0, y: 0, z: 0}
-  maxLights: 6
-  raycast: 1
-  raycastMask:
-    serializedVersion: 2
-    m_Bits: 0
-  raycastFadeSpeed: 10
---- !u!114 &5364535447222774946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8332843615904632227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2dcc142afd25ee4f96dcfbfd6412cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 92d57e3e2082b0b42a5f4f8316c4275b, type: 2}
   meshCenter: {x: 0, y: 0, z: 0}
   maxLights: 6
   raycast: 1
