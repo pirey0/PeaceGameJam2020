@@ -9,3 +9,9 @@ public interface IPickupable
     Collider GetCollider();
 }
 
+public interface IInteractable
+{
+    bool CanInteractWith(PlayerController playerController);
+
+    void InteractWith(PlayerController playerController);
+}
