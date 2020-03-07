@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] string horizontalInputAxis;
     [SerializeField] string verticalInputAxis;
-    [SerializeField] string pickupInputButton;
+    [SerializeField] string pickupInputButton, interactInputButton;
     [SerializeField] LayerMask pickupLayer;
     [SerializeField] Transform pickupPositionTransform;
 
@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
      new Rigidbody rigidbody;
 
     IPickupable currentPickup;
+    IPickupable closestPickup;
+
+    IInteractable closestInteractable;
+
+    public IPickupable CurrentPickup { get => currentPickup; }
 
     void Awake()
     {
@@ -49,10 +54,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void UpdateInteract()
+    {
+        closestInteractable = GetClosestObjectInRange<IInteractable>();
+
+        if (closestInteractable != null && closestInteractable.CanInteractWith(this))
+        {
+            bool interactCliked = Input.GetButtonDown(interactInputButton);
+
+            if (interactCliked)
+            {
+                closestInteractable.InteractWith(this);
+            }
+        }
+    }
 
     void UpdatePickup()
     {
         bool pickupClicked = Input.GetButtonDown(pickupInputButton);
+
+        closestPickup = GetClosestObjectInRange<IPickupable>();
+
 
         if (pickupClicked)
         {
@@ -67,40 +89,44 @@ public class PlayerController : MonoBehaviour
                 Release();
             }
         }
-
     }
 
-    void TryPickup()
+    T GetClosestObjectInRange<T>()
     {
-        //look for pickup
-
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, pickupRange, Vector3.up, 0.1f, pickupLayer, QueryTriggerInteraction.Collide);
 
-        IPickupable minPickup = null;
+        T minObject = default(T);
         float minDistance = float.MaxValue;
 
         for (int i = 0; i < hits.Length; i++)
         {
             var hit = hits[i];
 
-            IPickupable pickupable = hit.transform.GetComponent<IPickupable>();
+            T pickupable = hit.transform.GetComponent<T>();
 
-            if(pickupable != null)
+            if (pickupable != null)
             {
 
                 float currentDistance = Vector3.Distance(transform.position, hit.transform.position);
 
-                if(currentDistance < minDistance)
+                if (currentDistance < minDistance)
                 {
                     minDistance = currentDistance;
-                    minPickup = pickupable;
+                    minObject = pickupable;
                 }
             }
         }
 
-        if(minPickup != null)
+        return minObject;
+    }
+
+    void TryPickup()
+    {
+        //look for pickup
+
+        if(closestPickup != null)
         {
-            currentPickup = minPickup;
+            currentPickup = closestPickup;
             currentPickup.GetRigidbody().isKinematic = true;
             currentPickup.GetCollider().enabled = false;
             var pickupTransform = currentPickup.GetTransform();
@@ -109,6 +135,11 @@ public class PlayerController : MonoBehaviour
             pickupTransform.position = pickupPositionTransform.position;
         }
 
+    }
+
+    public void ForceRelease()
+    {
+        Release();
     }
 
     void Release()
