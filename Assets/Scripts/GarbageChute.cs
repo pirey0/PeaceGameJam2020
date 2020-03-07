@@ -6,21 +6,34 @@ public class GarbageChute : MonoBehaviour, IInteractable
 {
     [SerializeField] Transform target;  
     [SerializeField] Animator animator;
+    [SerializeField] GarbageChute partner;
+
     public bool CanInteractWith(PlayerController playerController){
         return true;
     }
 
     public void InteractWith(PlayerController playerController){
-        if(playerController.CurrentPickup!=null){
+
+        if (playerController.CurrentPickup!=null)
+        {
             IPickupable garbage = playerController.CurrentPickup;
-            playerController.ForceRelease();
             garbage.GetTransform().position = target.position;
-            animator.SetTrigger("Open");
+            PlayAnimation();
+
+            if(partner != null)
+            {
+                partner.PlayAnimation();
+            }
         }
-        else{
+        else
+        {
             // Feedback nothing to throw away
         }
     }
 
+    public void PlayAnimation()
+    {
+        animator.SetTrigger("Open");
+    }
 
 }
