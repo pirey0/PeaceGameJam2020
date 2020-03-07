@@ -72,38 +72,25 @@ public class PlayerController : MonoBehaviour
     void UpdateInteract()
     {
         closestInteractable = GetClosestObjectInRange<IInteractable>();
-
-        if (closestInteractable != null && closestInteractable.CanInteractWith(this))
-        {
-            bool interactCliked = Input.GetButtonDown(interactInputButton);
-
-            if (interactCliked)
-            {
-                Debug.Log("Interacting");
-                closestInteractable.InteractWith(this);
-            }
-        }
     }
 
     void UpdatePickup()
     {
         bool pickupClicked = Input.GetButtonDown(pickupInputButton);
+        bool pickupReleased = Input.GetButtonUp(pickupInputButton);
 
         closestPickup = GetClosestObjectInRange<IPickupable>();
 
 
-        if (pickupClicked)
+        if (pickupClicked && currentPickup == null)
         {
             Debug.Log(name + ": pickupClicked");
 
-            if(currentPickup == null)
-            {
                 TryPickup();
-            }
-            else
-            {
+        }
+        else if( pickupReleased && currentPickup != null)
+        {
                 Release();
-            }
         }
     }
 
@@ -163,12 +150,19 @@ public class PlayerController : MonoBehaviour
 
     void Release()
     {
+        if (closestInteractable != null && closestInteractable.CanInteractWith(this))
+        {
+            Debug.Log("Interacting");
+            closestInteractable.InteractWith(this);
+        }
+
+        rightArm.Target = rightArmNormalTarget;
+        leftArm.Target = leftArmNormalTarget;
         currentPickup.GetTransform().parent = null;
         currentPickup.GetRigidbody().isKinematic = false;
         currentPickup.GetCollider().enabled = true;
         currentPickup = null;
-        rightArm.Target = rightArmNormalTarget;
-        leftArm.Target = leftArmNormalTarget;
+
     }
 
     private void OnDrawGizmosSelected()
