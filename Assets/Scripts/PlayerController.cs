@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     [Range(1,10)]
     [SerializeField] float speed = 1;
 
-     new Rigidbody rigidbody;
+    [SerializeField] Animator animator;
+
+    new Rigidbody rigidbody;
 
     IPickupable currentPickup;
     IPickupable closestPickup;
@@ -51,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
             transform.forward = vel;
         }
+
+        animator.SetFloat("Speed", rigidbody.velocity.magnitude);
 
     }
 

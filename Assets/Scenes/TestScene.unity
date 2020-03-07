@@ -318,6 +318,11 @@ PrefabInstance:
       propertyPath: pickupInputButton
       value: Pickup2
       objectReference: {fileID: 0}
+    - target: {fileID: 4772456281326823197, guid: e7f9a695857da2743a44e1a38a679f2e,
+        type: 3}
+      propertyPath: interactInputButton
+      value: Interact2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f9a695857da2743a44e1a38a679f2e, type: 3}
 --- !u!1 &744458047
@@ -665,11 +670,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4772456281326823197, guid: e7f9a695857da2743a44e1a38a679f2e,
-        type: 3}
-      propertyPath: sphereRange
-      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f9a695857da2743a44e1a38a679f2e, type: 3}
