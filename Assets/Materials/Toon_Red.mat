@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon_White
+  m_Name: Toon_Red
   m_Shader: {fileID: -6465566751694194690, guid: 24eea7597cd97a84a972cab198d9672d,
     type: 3}
   m_ShaderKeywords: 
@@ -33,7 +33,7 @@ Material:
     - Vector1_D22040D2: 3
     - Vector1_D3DA8A1D: -30
     m_Colors:
-    - Color_6DE21CC8: {r: 1, g: 1, b: 1, a: 0}
+    - Color_6DE21CC8: {r: 1, g: 0.3915094, b: 0.3915094, a: 0}
     - Color_A95950AA: {r: 1, g: 1, b: 1, a: 0}
     - Color_F56E6AF5: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
     - _L1_color: {r: 1, g: 0.95686275, b: 0.8392157, a: 0.99}
