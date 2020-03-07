@@ -6,7 +6,6 @@ public class GarbageChute : MonoBehaviour, IInteractable
 {
     [SerializeField] Transform target;  
     [SerializeField] Animator animator;
-    [SerializeField] GarbageChute partner;
 
     public bool CanInteractWith(PlayerController playerController){
         return true;
@@ -19,11 +18,6 @@ public class GarbageChute : MonoBehaviour, IInteractable
             IPickupable garbage = playerController.CurrentPickup;
             garbage.GetTransform().position = target.position;
             PlayAnimation();
-
-            if(partner != null)
-            {
-                partner.PlayAnimation();
-            }
         }
         else
         {

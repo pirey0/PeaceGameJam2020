@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] string horizontalInputAxis;
     [SerializeField] string verticalInputAxis;
-    [SerializeField] string pickupInputButton, interactInputButton;
+    [SerializeField] string pickupInputButton;
     [SerializeField] LayerMask pickupLayer;
     [SerializeField] Transform pickupPositionTransform;
 
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     T GetClosestObjectInRange<T>()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, pickupRange, Vector3.up, 0.1f, pickupLayer, QueryTriggerInteraction.Collide);
+        RaycastHit[] hits = Physics.SphereCastAll(pickupPositionTransform.position, pickupRange, Vector3.up, 0.1f, pickupLayer, QueryTriggerInteraction.Collide);
 
         T minObject = default(T);
         float minDistance = float.MaxValue;
@@ -129,16 +129,23 @@ public class PlayerController : MonoBehaviour
 
         if(closestPickup != null)
         {
-            currentPickup = closestPickup;
-            currentPickup.GetRigidbody().isKinematic = true;
-            currentPickup.GetCollider().enabled = false;
-            var pickupTransform = currentPickup.GetTransform();
+            if (closestPickup.ShouldPickup())
+            {
+                currentPickup = closestPickup;
+                currentPickup.GetRigidbody().isKinematic = true;
+                currentPickup.GetCollider().enabled = false;
+                var pickupTransform = currentPickup.GetTransform();
 
-            pickupTransform.parent = transform;
-            pickupTransform.position = pickupPositionTransform.position;
+                pickupTransform.parent = transform;
+                pickupTransform.position = pickupPositionTransform.position;
 
-            rightArm.Target = currentPickup.GetTransform();
-            leftArm.Target = currentPickup.GetTransform();
+                rightArm.Target = currentPickup.GetTransform();
+                leftArm.Target = currentPickup.GetTransform();
+            }
+            else
+            {
+                closestPickup.CauseEffect();
+            }
         }
 
     }
@@ -167,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, pickupRange);
+        Gizmos.DrawWireSphere(pickupPositionTransform.position, pickupRange);
     }
 
 }
