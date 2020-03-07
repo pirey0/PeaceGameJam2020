@@ -18,11 +18,6 @@ public class GarbageChute : MonoBehaviour, IInteractable
             IPickupable garbage = playerController.CurrentPickup;
             garbage.GetTransform().position = target.position;
             PlayAnimation();
-
-            if(partner != null)
-            {
-                partner.PlayAnimation();
-            }
         }
         else
         {
