@@ -187,7 +187,6 @@ MonoBehaviour:
   horizontalInputAxis: Horizontal
   verticalInputAxis: Vertical
   pickupInputButton: Pickup
-  interactInputButton: Interact
   pickupLayer:
     serializedVersion: 2
     m_Bits: 4294967295
